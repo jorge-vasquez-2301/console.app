@@ -8,6 +8,7 @@
 
 **<a name="design"><h2>Design choices</h2></a>**
 <ul>
+    <li> This is a RESTful client for the Pet management system application</li>
     <li><b>SBT</b> is used as the build and dependencies management tool for this project, like the pet management system application</li>
     <li><b>JUnit</b> was the chosen framework for testing</li>
     <li>The application always creates pets from data.csv file (located in src/main/resources), so if it is run multiple times, data is inserted multiple times in the pet management system (with different pet id's) </li>
@@ -22,5 +23,6 @@
 **<a name="instructions"><h2>Running instructions</h2></a>**
 <ul>
     <li>For configuring the server address and port use the console.properties file, located in src/main/resources</li>
-    <li>For running the application, just issue a command like <code>sbt "run src/main/resources/data.csv name=Spike"</code> or <code>sbt "run src/main/resources/data.csv type=dog"</code> or <code>sbt "run src/main/resources/data.csv type=dog gender=male"</code> or <code>sbt "run src/main/resources/data.csv delete=1"</code> in the project's root directory (if sbt is not included in system path, execute <code>/full/path/to/sbt "run [parameters]"</code>)</li>
+    <li>For running the application, just issue a command like <code>sbt "run src/main/resources/data.csv name=Spike"</code> or <code>sbt "run src/main/resources/data.csv type=dog"</code> or <code>sbt "run src/main/resources/data.csv type=dog gender=male"</code> or <code>sbt "run src/main/resources/data.csv delete=1"</code> in the project's root directory, where the build.sbt file resides (if sbt is not included in system path, execute <code>/full/path/to/sbt "run [parameters]"</code>)</li>
+    <li>The first time the application runs, SBT will download automatically all the dependencies</li>
 </ul>
