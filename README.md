@@ -22,5 +22,5 @@
 **<a name="instructions"><h2>Running instructions</h2></a>**
 <ul>
     <li>For configuring the server address and port use the console.properties file, located in src/main/resources</li>
-    <li>For running the application, just issue a command like <code>sbt "run src/main/resources/data.csv name=Spike"</code> or <code>sbt "run src/main/resources/data.csv type=dog"</code> or <code>sbt "run src/main/resources/data.csv type=dog gender=male"</code> or <code>sbt "run src/main/resources/data.csv delete=1"</code> in the project's root directory (if sbt is not included in system path, execute <code>/full/path/to/sbt run</code>)</li>
+    <li>For running the application, just issue a command like <code>sbt "run src/main/resources/data.csv name=Spike"</code> or <code>sbt "run src/main/resources/data.csv type=dog"</code> or <code>sbt "run src/main/resources/data.csv type=dog gender=male"</code> or <code>sbt "run src/main/resources/data.csv delete=1"</code> in the project's root directory (if sbt is not included in system path, execute <code>/full/path/to/sbt "run [parameters]"</code>)</li>
 </ul>
