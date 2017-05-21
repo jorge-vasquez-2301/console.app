@@ -12,11 +12,13 @@ import static org.junit.Assert.assertTrue;
 
 public class PetManagementSystemClientIntegrationTest {
 
+    /* constants. */
     private static final int OK = 200;
+    private static final int BAD = 400;
     private static final String ADDRESS = "localhost";
     private static final short PORT = 9000;
 
-    private PetManagementSystemClient petManagementSystemClient = new PetManagementSystemClient(ADDRESS, PORT);
+    private final PetManagementSystemClient petManagementSystemClient = new PetManagementSystemClient(ADDRESS, PORT);
 
     private static final BinaryOperator<Pet> COMPARING_BY_TIMESTAMP = (pet1, pet2) -> pet1.getTimestamp().after(pet2.getTimestamp()) ? pet1 : pet2;
     private static final BinaryOperator<Pet> COMPARING_BY_NAME = (pet1, pet2) -> pet1.getName().compareTo(pet2.getName()) < 0 ? pet1 : pet2;
@@ -38,13 +40,19 @@ public class PetManagementSystemClientIntegrationTest {
 
     @Test
     public void testCreatePet() throws IOException {
-        int resultCode = petManagementSystemClient.createPet("dog", "Spike", Pet.Gender.MALE);
+        int resultCode = petManagementSystemClient.createPet("dog", "Spike", Pet.Gender.MALE, "20170520-120000");
         assertEquals(OK, resultCode);
+    }
+
+    @Test
+    public void testCreatePetWithBadDate() throws IOException {
+        int resultCode = petManagementSystemClient.createPet("dog", "Spike", Pet.Gender.MALE, "20170520120000");
+        assertEquals(BAD, resultCode);
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void testCreatePetWithNullParameters() throws IOException {
-        petManagementSystemClient.createPet(null, null, null);
+        petManagementSystemClient.createPet(null, null, null, null);
     }
 
     @Test

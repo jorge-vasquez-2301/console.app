@@ -2,7 +2,9 @@ package com.example;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.Optional;
 
 /**
  * The Pet class.
@@ -12,7 +14,7 @@ import java.util.Date;
  */
 public class Pet {
 
-    private long id;
+    private Long id;
     private String type;
     private String name;
     private String gender;
@@ -21,17 +23,18 @@ public class Pet {
     /**
      * Empty constructor for Pet.
      */
-    public Pet() { }
+    public Pet() {
+    }
 
     /**
      * Creates a new instance of Pet.
-     * @param id
-     * @param type
-     * @param name
-     * @param gender
-     * @param timestamp
+     * @param id        pet's id
+     * @param type      pet's type
+     * @param name      pet's name
+     * @param gender    pet's gender
+     * @param timestamp pet's timestamp
      */
-    public Pet(long id, String type, String name, String gender, Date timestamp) {
+    public Pet(Long id, String type, String name, String gender, Date timestamp) {
         this.id = id;
         this.type = type;
         this.name = name;
@@ -42,7 +45,7 @@ public class Pet {
     /**
      * @return pet's id
      */
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
@@ -130,17 +133,27 @@ public class Pet {
      * This models the possible values for a pet's gender.
      */
     public enum Gender {
-        MALE    ("male"),
-        FEMALE  ("female");
+        MALE("M", "male"),
+        FEMALE("F", "female");
 
-        private String value;
+        private final String letter;
+        private final String value;
 
         /**
          * Constructor for Gender.
-         * @param value Gender value: male/female
+         * @param letter Gender value: M/F
+         * @param value  Gender value: male/female
          */
-        Gender(String value) {
+        Gender(String letter, String value) {
+            this.letter = letter;
             this.value = value;
+        }
+
+        /**
+         * @return the letter
+         */
+        public String getLetter() {
+            return letter;
         }
 
         /**
@@ -148,6 +161,24 @@ public class Pet {
          */
         public String getValue() {
             return value;
+        }
+
+        /**
+         * Returns the Gender for an specific letter.
+         * @param letter the letter representing the gender
+         * @return the Gender
+         */
+        public static Optional<Gender> getGenderByLetter(String letter) {
+            return Arrays.stream(Gender.values()).filter(gender -> gender.getLetter().equals(letter)).findFirst();
+        }
+
+        /**
+         * Returns the Gender for an specific letter.
+         * @param value the value representing the gender
+         * @return the Gender
+         */
+        public static Optional<Gender> getGenderByValue(String value) {
+            return Arrays.stream(Gender.values()).filter(gender -> gender.getValue().equals(value)).findFirst();
         }
     }
 }

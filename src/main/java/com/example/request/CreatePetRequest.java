@@ -16,20 +16,23 @@ public class CreatePetRequest extends AbstractRequest<Integer> {
     private final String petType;
     private final String name;
     private final String gender;
+    private final String timestamp;
 
     /**
      * Creates a new instance of CreatePetRequest.
-     * @param client  the HTTP client reference
-     * @param baseUrl the base URL for the execute
-     * @param petType pet's type
-     * @param name    pet's name
-     * @param gender  pet's gender
+     * @param client    the HTTP client reference
+     * @param baseUrl   the base URL for the execute
+     * @param petType   pet's type
+     * @param name      pet's name
+     * @param gender    pet's gender
+     * @param timestamp pet's creation timestamp
      */
-    public CreatePetRequest(HttpClient client, String baseUrl, String petType, String name, String gender) {
+    public CreatePetRequest(HttpClient client, String baseUrl, String petType, String name, String gender, String timestamp) {
         super(client, baseUrl);
         this.petType = petType;
         this.name = name;
         this.gender = gender;
+        this.timestamp = timestamp;
     }
 
     @Override
@@ -41,6 +44,8 @@ public class CreatePetRequest extends AbstractRequest<Integer> {
         url.append(name);
         url.append('/');
         url.append(gender);
+        url.append('/');
+        url.append(timestamp);
         return url.toString();
     }
 
@@ -52,6 +57,11 @@ public class CreatePetRequest extends AbstractRequest<Integer> {
 
     @Override
     public Integer parseResponse(HttpResponse response) {
-        return response.getStatusLine().getStatusCode();
+        try {
+            response.getEntity().consumeContent();
+            return response.getStatusLine().getStatusCode();
+        } catch (IOException e) {
+            return null;
+        }
     }
 }

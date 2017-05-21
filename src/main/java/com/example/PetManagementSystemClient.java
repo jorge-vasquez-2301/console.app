@@ -35,15 +35,16 @@ public class PetManagementSystemClient {
 
     /**
      * This action creates a new pet for the given parameters.
-     * @param type The pet's type (i.e. dog, cat, ...)
-     * @param name    The pet's name
-     * @param gender  The pet's gender (i.e. male, female)
+     * @param type      The pet's type (i.e. dog, cat, ...)
+     * @param name      The pet's name
+     * @param gender    The pet's gender (i.e. male, female)
+     * @param timestamp The pet's creation timestamp
      * @return the result code
      * @throws IOException
      */
-    public int createPet(String type, String name, Pet.Gender gender) throws IOException {
-        if (type != null && name != null && gender != null) {
-            return new CreatePetRequest(client, baseUrl, type, name, gender.getValue()).execute();
+    public int createPet(String type, String name, Pet.Gender gender, String timestamp) throws IOException {
+        if (type != null && name != null && gender != null && timestamp != null) {
+            return new CreatePetRequest(client, baseUrl, type, name, gender.getValue(), timestamp).execute();
         } else {
             throw new IllegalArgumentException("Arguments must not be null");
         }

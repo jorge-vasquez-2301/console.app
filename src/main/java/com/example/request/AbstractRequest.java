@@ -13,8 +13,8 @@ import java.io.IOException;
  */
 public abstract class AbstractRequest<T> {
 
-    HttpClient client;
-    String baseUrl;
+    final HttpClient client;
+    final String baseUrl;
 
     /**
      * Constructor for AbstractRequest.
