@@ -11,7 +11,7 @@
     <li> This is a RESTful client for the Pet management system application</li>
     <li><b>SBT</b> is used as the build and dependencies management tool for this project, like the pet management system application</li>
     <li><b>JUnit</b> was the chosen framework for testing</li>
-    <li>The application always creates pets from data.csv file (located in src/main/resources), so if it is run multiple times, data is inserted multiple times in the pet management system (with different pet id's) </li>
+    <li>The application always creates pets from the CSV file provided as input, such as data.csv (located in src/main/resources), so if it is run multiple times, data is inserted multiple times in the pet management system (with different pet id's) </li>
 </ul>
 
 **<a name="requirements"><h2>Requirements</h2></a>**
