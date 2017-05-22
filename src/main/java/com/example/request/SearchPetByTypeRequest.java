@@ -12,7 +12,7 @@ public class SearchPetByTypeRequest extends AbstractSearchPetRequest {
     private final String type;
 
     /**
-     * Creates a new instance of CreatePetRequest.
+     * Creates a new instance of SearchPetByTypeRequest.
      * @param client  the HTTP client reference
      * @param baseUrl the base URL for the execute
      * @param type    pet's type

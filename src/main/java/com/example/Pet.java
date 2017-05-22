@@ -133,8 +133,8 @@ public class Pet {
      * This models the possible values for a pet's gender.
      */
     public enum Gender {
-        MALE("M", "male"),
-        FEMALE("F", "female");
+        MALE    ("M", "male"),
+        FEMALE  ("F", "female");
 
         private final String letter;
         private final String value;

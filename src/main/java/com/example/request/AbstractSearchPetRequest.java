@@ -23,7 +23,7 @@ import java.util.List;
 public abstract class AbstractSearchPetRequest extends AbstractRequest<List<Pet>> {
 
     /**
-     * Creates a new instance of CreatePetRequest.
+     * Constructor for AbstractSearchPetRequest.
      * @param client  the HTTP client reference
      * @param baseUrl the base URL for the execute
      */

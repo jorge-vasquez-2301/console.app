@@ -12,7 +12,7 @@ public class SearchPetByNameRequest extends AbstractSearchPetRequest {
     private final String name;
 
     /**
-     * Creates a new instance of CreatePetRequest.
+     * Creates a new instance of SearchPetByNameRequest.
      * @param client  the HTTP client reference
      * @param baseUrl the base URL for the execute
      * @param name    pet's name

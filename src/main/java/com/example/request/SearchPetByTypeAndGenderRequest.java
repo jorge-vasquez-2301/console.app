@@ -14,7 +14,7 @@ public class SearchPetByTypeAndGenderRequest extends AbstractSearchPetRequest {
     private final Pet.Gender gender;
 
     /**
-     * Creates a new instance of CreatePetRequest.
+     * Creates a new instance of SearchPetByTypeRequest.
      * @param client  the HTTP client reference
      * @param baseUrl the base URL for the execute
      * @param type    pet's type
