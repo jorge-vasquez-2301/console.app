@@ -27,7 +27,7 @@
         <ul>
             <li><code>sbt "run src/main/resources/data.csv name=Spike"</code></li>
             <li><code>sbt "run src/main/resources/data.csv type=dog"</code></li>
-            <li><code>sbt "run src/main/resources/data.csv type=dog gender=male"</code></li>
+            <li><code>sbt "run src/main/resources/data.csv type=dog gender=male"</code> (design considers type and gender are in that order only)</li>
             <li><code>sbt "run src/main/resources/data.csv delete=1"</code></li>
         </ul><br>
         In the project's root directory, where the build.sbt file resides (if sbt is not included in system path, execute <code>/full/path/to/sbt "run [parameters]"</code>)
