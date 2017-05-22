@@ -32,5 +32,5 @@
         </ul><br>
         In the project's root directory, where the build.sbt file resides (if sbt is not included in system path, execute <code>/full/path/to/sbt "run [parameters]"</code>)
     </li>
-    <li>The first time the application runs, SBT will download automatically all the dependencies</li>
+    <li>The first time the application runs, SBT will automatically download all the dependencies</li>
 </ul>
